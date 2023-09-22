@@ -1,6 +1,6 @@
 data_ignore/
 etc/
-images/
+/images/
 Include/
 Lib/
 Scripts/

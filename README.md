@@ -205,5 +205,5 @@ data/datasets_nb001
   - 一般的に Case-2 の方が良いスコアが出るものだが、今回のケースはMAEは却って悪化した
   - もしくは逆に、Case-1 は過学習気味？
   - 両ケースの結果を提出。Public Score は Case-2 の方が良かった<br>
-  <img src='.\data\images\readme\nb004_Public_Score.png' width='800'>
+  <img src='.\data\images\readme\nb004_public_score.png' width='800'>
   - 次は交差検証を用いて推定を行う

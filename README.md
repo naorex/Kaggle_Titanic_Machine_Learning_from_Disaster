@@ -53,7 +53,7 @@ notebook: nb001<br>
 |----|----|----|
 |PassengerId|int64|乗客毎の固有ID|
 |Survived|int64|死亡0、生存1のブール値|
-|Pclass|int64|1,2,3のカテゴリ変数。チケットクラス|
+|Pclass|int64|1,2,3のカテゴリ変数。1stクラス～3rdクラス|
 |Name|object|重複なし。乗客名。敬称は17種類|
 |Sex|object|男女2種類のみ。性別|
 |Age|float64|null 177件。88種類。年齢|
@@ -61,8 +61,8 @@ notebook: nb001<br>
 |Parch|int64|7種類。0,1,2,3,4,5,6のカテゴリ変数。同乗した親または子供の人数|
 |Ticket|object|681種類。番号や文字列が混在。規則性や意味は不明。チケット番号|
 |Fare|float64|248種類。運賃価格|
-|Cabin|object|null 687件。147種類。英大文字+数字の組み合わせ。部屋番号？|
-|Embarked|object|null 2件。3種類。S,C,Qのカテゴリ変数。乗船した港？|
+|Cabin|object|null 687件。147種類。英大文字+数字の組み合わせ。部屋番号|
+|Embarked|object|null 2件。3種類。S,C,Qのカテゴリ変数。乗船した港。C = Cherbourg, Q = Queenstown, S = Southampton|
 
 ### test.csv colomn infomation
 notebook: nb001<br>
@@ -189,3 +189,21 @@ data/datasets_nb001
     # Early stopping, best iteration is:
     # [29]	training's binary_logloss: 0.301373	valid_1's binary_logloss: 0.400278
     ```
+
+- nb004
+  - ここからオリジナル
+  - RandomForestRegressor による推定
+  - 話を簡単にするため、object型の列データを除外
+  - train_size=0.8, test_size=0.2 で分割（交差検証CV : 無し）<br><br>
+    - Case-1 : そのまま推定。random_state=1
+    - Validation MAE:  0.238, モデルのスコア:  0.945
+    - Kaggle Public Score: 0.72727<br><br>
+    - Case-2 : 決定木のmax_leaf_nodesを範囲設定して最小MAEを探索。random_state=1
+    - 範囲設定 => range(2,102,1) => 最適ツリーサイズ:  5
+    - Validation MAE:  0.182, モデルのスコア:  0.818
+    - Kaggle Public Score: 0.78468<br><br>
+  - 一般的に Case-2 の方が良いスコアが出るものだが、今回のケースはMAEは却って悪化した
+  - もしくは逆に、Case-1 は過学習気味？
+  - 両ケースの結果を提出。Public Score は Case-2 の方が良かった<br>
+  <img src='.\data\images\readme\nb004_Public_Score.png' width='800'>
+  - 次は交差検証を用いて推定を行う

@@ -168,3 +168,15 @@ data/datasets_nb001
 ├── nb001_train.csv
 └── nb001_test.csv
 ```
+
+### 20230923
+- nb002
+  - データの前処理、LightGBM を用いて学習および生存予測
+  - One-Hot Encoding で "Sex" と "Embarked" を前処理 (Pandas の get_dummies)
+  - LightGBM の導入
+    - LightGBMの仕様が変わっているようなので注意 [(参考リンク)](https://qiita.com/c60evaporator/items/2b7a2820d575e212bcf4)
+    - score 82.37
+    ```bash
+    # Early stopping, best iteration is:
+    # [29]	training's binary_logloss: 0.301373	valid_1's binary_logloss: 0.400278
+    ```

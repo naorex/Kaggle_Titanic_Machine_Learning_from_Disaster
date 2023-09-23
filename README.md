@@ -180,3 +180,12 @@ data/datasets_nb001
     # Early stopping, best iteration is:
     # [29]	training's binary_logloss: 0.301373	valid_1's binary_logloss: 0.400278
     ```
+
+- nb003
+  - scikit-learn interface を使用して推定する手法にトライ
+  - nb002 と同じ結果が出る事を確認
+    - score 82.37
+    ```bash
+    # Early stopping, best iteration is:
+    # [29]	training's binary_logloss: 0.301373	valid_1's binary_logloss: 0.400278
+    ```

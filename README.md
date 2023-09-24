@@ -192,7 +192,7 @@ data/datasets_nb001
 
 - nb004
   - ここからオリジナル
-  - RandomForestRegressor による推定
+  - RandomForestClassifier による推定
   - 話を簡単にするため、object型の列データを除外
   - train_size=0.8, test_size=0.2 で分割（交差検証CV : 無し）<br><br>
     - Case-1 : そのまま推定。random_state=1
@@ -202,8 +202,21 @@ data/datasets_nb001
     - 範囲設定 => range(2,102,1) => 最適ツリーサイズ:  5
     - Validation MAE:  0.182, モデルのスコア:  0.818
     - Kaggle Public Score: 0.78468<br><br>
-  - 一般的に Case-2 の方が良いスコアが出るものだが、今回のケースはMAEは却って悪化した
+  - 一般的に Case-2 の方が良いスコアが出るものだが、今回のケースはスコアは却って悪化した
   - もしくは逆に、Case-1 は過学習気味？
   - 両ケースの結果を提出。Public Score は Case-2 の方が良かった<br>
   <img src='.\data\images\readme\nb004_public_score.png' width='800'>
   - 次は交差検証を用いて推定を行う
+
+### 20230924
+- nb005
+  - RandomForestClassifier による推定に、交差検証を導入
+  - 話を簡単にするため、object型の列データを除外
+  - 5 fold による交差検証
+  - 結果、ツリーの数 n_estimators = 300 が最適と出た<br>
+  <img src='.\data\images\readme\nb005_graph_mae_nesti.png'>
+  - 各 n_estimators での Average MAE Score<br>
+  <img src='.\data\images\readme\nb005_nesti_detail.png'><br>
+  - 結果を提出
+    - Kaggle Public Score: 0.73684
+  - 次の方針はどうするか

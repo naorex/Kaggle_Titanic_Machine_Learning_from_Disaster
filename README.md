@@ -215,8 +215,71 @@ data/datasets_nb001
   - 5 fold による交差検証
   - 結果、ツリーの数 n_estimators = 300 が最適と出た<br>
   <img src='.\data\images\readme\nb005_graph_mae_nesti.png'>
+
   - 各 n_estimators での Average MAE Score<br>
   <img src='.\data\images\readme\nb005_nesti_detail.png'><br>
+
   - 結果を提出
     - Kaggle Public Score: 0.73684
   - 次の方針はどうするか
+
+### 20231001
+- nb006
+  - 『探索的データ探索』の本のプロセスを実施。以下メモ。
+  - 良いデータを見つけるためのプロセス
+    - STEP 1: データの理解
+      - まずはコンペの目的、データの概要、意味、値を確認する
+    - STEP 2: データのクリーニング
+      - データセットには欠損や分析に不適なデータが必ず含まれるため除外
+      - 代表的な手法は以下<br>
+    <img src='.\data\images\readme\nb006_1.png' width='600'><br>
+    - STEP 3: データ分析の切り口の検討
+      - どんな切り口で分析するかが非常に重要
+      - 代表的な切り口は以下<br>
+    <img src='.\data\images\readme\nb006_2.png' width='600'><br>
+    - STEP 4: データの分析
+      - データの切り口を決めたら、データの分析へ
+      - 代表的な分析手法は以下<br>
+    <img src='.\data\images\readme\nb006_3.png' width='600'><br>
+    - STEP 5: データの選択
+      - 分析が終わったら結果をまとめて、目的変数に関連度合いに応じて優先度を付ける
+
+  - データの種類から分析する視点を変える
+  - 基本の2パターンは以下
+    - 質的データ（カテゴリデータ）
+      - 数値で測定できないデータ
+    - 量的データ
+      - 数値測定が可能なデータ
+      - 連続データと離散データの2種類に分かれる
+  - 尺度分類　データの分類・水準
+    - 以下の4つに分類<br>
+    <img src='.\data\images\readme\nb006_4.png' width='800'><br>
+
+  - 欠損値は残すか消すこと、原則として補間処理はしない
+    - 探索的データ分析の段階では、欠損値の補間は行わないこと
+      - 欠損値が多い場合、または目的変数との関連が弱い場合: データ列を削除する
+      - 欠損値が少ない場合、または目的変数との関連が強い場合: 欠損値のまま残す
+
+  - 外れ値は外すこと
+    - 外れ値の判断はデータの特性にもよるが、まずは
+      - 常識的に考えて異常なデータは除外
+      - 範囲による外れ値の判定
+        - 例えば上位下位25%（四分位範囲）は除外する<br>
+        <img src='.\data\images\readme\nb006_Age_Boxplot.png' width='400'>
+        - 他には、閾値設定を行う<br>
+        <img src='.\data\images\readme\nb006_Fare_histplot.png' width='500'>
+        - 平均32,標準偏差49,最大値512と分布に偏りがある<br>
+        <img src='.\data\images\readme\nb006_Fare_detail.png'>
+        - 運賃50以上は除外した後<br>
+        <img src='.\data\images\readme\nb006_Fare_histplot_after.png' width='500'>
+        - 平均15,標準偏差10と分布の偏りが是正された<br>
+        <img src='.\data\images\readme\nb006_Fare_detail_after.png'>
+
+  - データ分析に適した姿へ変換
+    - データの型変換（テキストから数値へ変換）
+      - 男性/女性　⇒　0/1 に変換
+    - データの型変換（数値からテキストへ変換）
+      - 数値の範囲から、グループの塊へ変換
+
+  - 規則性を見抜いて意味のあるデータを作成
+    - Cabin の先頭文字を見ると、客室ランクを表している事が推察できる

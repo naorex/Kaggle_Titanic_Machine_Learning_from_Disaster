@@ -265,7 +265,7 @@ data/datasets_nb001
       - 常識的に考えて異常なデータは除外
       - 範囲による外れ値の判定
         - 例えば上位下位25%（四分位範囲）は除外する<br>
-        <img src='.\data\images\readme\nb006_Age_Boxplot.png' width='400'>
+        <img src='.\data\images\readme\nb006_Age_boxplot.png' width='400'>
         - 他には、閾値設定を行う<br>
         <img src='.\data\images\readme\nb006_Fare_histplot.png' width='500'>
         - 平均32,標準偏差49,最大値512と分布に偏りがある<br>

@@ -265,13 +265,13 @@ data/datasets_nb001
       - 常識的に考えて異常なデータは除外
       - 範囲による外れ値の判定
         - 例えば上位下位25%（四分位範囲）は除外する<br>
-        <img src='.\data\images\readme\nb006_Age_boxplot.png' width='400'>
+        <img src='.\data\images\readme\nb006_Age_boxplot.png' width='400'><br>
         - 他には、閾値設定を行う<br>
-        <img src='.\data\images\readme\nb006_Fare_histplot.png' width='500'>
+        <img src='.\data\images\readme\nb006_Fare_histplot.png' width='500'><br>
         - 平均32,標準偏差49,最大値512と分布に偏りがある<br>
-        <img src='.\data\images\readme\nb006_Fare_detail.png'>
+        <img src='.\data\images\readme\nb006_Fare_detail.png'><br>
         - 運賃50以上は除外した後<br>
-        <img src='.\data\images\readme\nb006_Fare_histplot_after.png' width='500'>
+        <img src='.\data\images\readme\nb006_Fare_histplot_after.png' width='500'><br>
         - 平均15,標準偏差10と分布の偏りが是正された<br>
         <img src='.\data\images\readme\nb006_Fare_detail_after.png'>
 

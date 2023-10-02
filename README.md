@@ -282,4 +282,21 @@ data/datasets_nb001
       - 数値の範囲から、グループの塊へ変換
 
   - 規則性を見抜いて意味のあるデータを作成
-    - Cabin の先頭文字を見ると、客室ランクを表している事が推察できる
+    - Cabin の先頭文字を見ると、客室ランクを表している事が推察できる<br>
+    <img src='.\data\images\readme\nb006_Fare_Cabin_ini.png' width='500'><br>
+    - しかし、データのばらつきが多いので利用は難しいか<br>
+    <img src='.\data\images\readme\nb006_Fare_Cabin_ini_detail.png'><br>
+    - 分析する意味のないデータは、見るだけ時間の無駄なので思い切って削除するのが吉
+
+  - データ分析の切り口6種
+    - 要約統計量
+    - スライシング
+    - ドリルダウン
+    - 合成
+    - 尺度変換
+    - 無名数化
+
+  - データ分析の基本6パターン
+    - 単変数のデータ分析
+      - 性別で傾向が異なることが分かる<br>
+    <img src='.\data\images\readme\nb006_Sex_Age.png' width='500'><br>

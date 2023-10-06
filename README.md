@@ -289,7 +289,8 @@ data/datasets_nb001
     - 分析する意味のないデータは、見るだけ時間の無駄なので思い切って削除するのが吉
 
   - データ分析の切り口6種
-    - 要約統計量
+    - 要約統計量<br>
+    <img src='.\data\images\readme\nb006_5.png' width='800'><br>
     - スライシング
     - ドリルダウン
     - 合成
@@ -299,7 +300,7 @@ data/datasets_nb001
   - データ分析の基本6パターン
     - 単変数のデータ分析
       - 性別で傾向が異なることが分かる<br>
-    <img src='.\data\images\readme\nb006_Sex_Age.png' width='500'>
+    <img src='.\data\images\readme\nb006_Sex_Age.png' width='500'><br>
     - 変数間のデータ分析
       - 客室ごと年齢を棒グラフで表現
     - 箱ひげ図
